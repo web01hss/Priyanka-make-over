@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Priyanka Makeover Studio & Academy</title>
+  <meta name="description" content="Management portal for Priyanka Makeover Studio. Monitor client inquiries, manage bridal dates, and direct WhatsApp dispatch.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Animated Top Border -->
+  <div class="admin-top-border"></div>
+
+  <!-- =========================================================================
+       1. LOGIN VIEW
+       ========================================================================= -->
+  <div class="login-view-wrapper" id="loginView">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="login-brand-icon">✨</div>
+        <h1>Priyanka Makeovers</h1>
+        <p>Bridal Studio Portal & Client Booking History</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="loginUser" class="form-label">Username / Email</label>
+          <div class="input-with-icon">
+            <span class="input-icon">👤</span>
+            <input type="text" id="loginUser" placeholder="admin or email" value="admin" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPass" class="form-label">Password / Security PIN</label>
+          <div class="input-with-icon">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="loginPass" placeholder="Enter password" value="admin123" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="passToggleBtn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <div class="login-helper-row">
+          <label>
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Stay logged in on this browser</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-login" id="btnLoginSubmit">
+          Unlock Admin Dashboard
+        </button>
+      </form>
+
+      <div class="login-hint-box">
+        <strong>Default Studio Access:</strong><br>
+        Username: <code style="color: #FF70B8;">admin</code> | Password: <code style="color: #FF70B8;">admin123</code><br>
+        <span style="font-size: 0.72rem; opacity: 0.8;">(You can also log in with your Supabase Auth account)</span>
+      </div>
+
+      <a href="index.html" class="login-back-link">
+        ← Back to Studio Website
+      </a>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. DASHBOARD VIEW
+       ========================================================================= -->
+  <div id="dashboardView" style="display: none;">
+    <div class="admin-container">
+      
+      <!-- Top Header Navigation -->
+      <header class="admin-header">
+        <div class="admin-header-brand">
+          <div class="brand-badge-icon">👑</div>
+          <div>
+            <h2>Priyanka Makeover Studio</h2>
+            <p>Bridal Inquiries & Appointment Dashboard</p>
+          </div>
+        </div>
+
+        <div class="admin-header-actions">
+          <div class="status-indicator-pill" id="supabaseIndicator">
+            <span class="indicator-dot"></span>
+            <span id="supabaseIndicatorText">Supabase: Connected</span>
+          </div>
+
+          <a href="index.html" target="_blank" rel="noopener noreferrer" class="btn-header">
+            <span>🌐</span> View Studio Website
+          </a>
+
+          <button type="button" class="btn-header" id="btnSyncData" title="Fetch fresh records from Supabase">
+            <span>🔄</span> Sync Data
+          </button>
+
+          <button type="button" class="btn-header danger" id="btnLogout" title="Log out of admin session">
+            <span>🚪</span> Logout
+          </button>
+        </div>
+      </header>
+
+      <!-- KPI Summary Cards -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-header">
+            <span class="metric-title">Total Inquiries</span>
+            <div class="metric-icon">📋</div>
+          </div>
+          <div class="metric-value" id="kpiTotal">0</div>
+          <div class="metric-footer">Lifetime client requests received</div>
+        </div>
+
+        <div class="metric-card pending">
+          <div class="metric-header">
+            <span class="metric-title">Pending Review</span>
+            <div class="metric-icon" style="color: var(--status-pending);">⏳</div>
+          </div>
+          <div class="metric-value" id="kpiPending" style="color: var(--status-pending);">0</div>
+          <div class="metric-footer">Awaiting studio confirmation</div>
+        </div>
+
+        <div class="metric-card confirmed">
+          <div class="metric-header">
+            <span class="metric-title">Confirmed Brides</span>
+            <div class="metric-icon" style="color: var(--status-confirmed);">💍</div>
+          </div>
+          <div class="metric-value" id="kpiConfirmed" style="color: var(--status-confirmed);">0</div>
+          <div class="metric-footer">Confirmed & date-locked</div>
+        </div>
+
+        <div class="metric-card upcoming">
+          <div class="metric-header">
+            <span class="metric-title">Upcoming (30 Days)</span>
+            <div class="metric-icon" style="color: var(--accent-purple);">📅</div>
+          </div>
+          <div class="metric-value" id="kpiUpcoming" style="color: var(--accent-purple);">0</div>
+          <div class="metric-footer">Weddings in next 30 days</div>
+        </div>
+      </section>
+
+      <!-- Filter & Search Toolbar -->
+      <section class="toolbar-section">
+        <!-- Top row: Search, New Booking, Export, View Toggle -->
+        <div class="toolbar-row-top">
+          <div class="search-box-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search by bride name, phone, venue, or service...">
+          </div>
+
+          <div class="toolbar-actions-group">
+            <button type="button" class="btn-primary-action" id="btnOpenAddModal">
+              <span>➕</span> Add Booking
+            </button>
+            <button type="button" class="btn-secondary-action" id="btnExportCsv">
+              <span>📥</span> Export CSV
+            </button>
+            <div class="view-toggle-group">
+              <button type="button" class="view-toggle-btn active" id="btnViewCards" title="Grid View">🔲 Cards</button>
+              <button type="button" class="view-toggle-btn" id="btnViewTable" title="Table View">☰ Table</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter chips and dropdowns -->
+        <div class="toolbar-row-filters">
+          <div class="status-tabs" id="statusTabs">
+            <button type="button" class="status-tab-btn active" data-status="all">
+              All <span class="tab-badge" id="badgeAll">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" data-status="pending">
+              Pending <span class="tab-badge" id="badgePending">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" data-status="confirmed">
+              Confirmed <span class="tab-badge" id="badgeConfirmed">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" data-status="completed">
+              Completed <span class="tab-badge" id="badgeCompleted">0</span>
+            </button>
+            <button type="button" class="status-tab-btn" data-status="cancelled">
+              Cancelled <span class="tab-badge" id="badgeCancelled">0</span>
+            </button>
+          </div>
+
+          <div class="dropdown-filters">
+            <select id="serviceFilter" class="custom-select" aria-label="Filter by service">
+              <option value="all">All Services</option>
+              <option value="Bridal Makeup">Bridal Makeup (All)</option>
+              <option value="Airbrush">Airbrush HD Bridal</option>
+              <option value="Engagement">Engagement & Sagan</option>
+              <option value="Reception">Cocktail & Reception</option>
+              <option value="Party">Party Makeover</option>
+              <option value="Academy">Academy Masterclass</option>
+            </select>
+
+            <select id="sortOrder" class="custom-select" aria-label="Sort orders">
+              <option value="created_desc">Newest Inquiries First</option>
+              <option value="event_asc">Event Date: Soonest</option>
+              <option value="event_desc">Event Date: Latest</option>
+              <option value="name_asc">Client Name (A–Z)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Bookings Display Container -->
+      <main id="bookingsMain">
+        <!-- Loading State Spinner -->
+        <div class="loading-spinner-box" id="loadingBox">
+          <div class="spinner"></div>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Fetching live inquiries from Supabase...</p>
+        </div>
+
+        <!-- Cards View Grid -->
+        <div class="bookings-cards-grid" id="cardsGrid" style="display: none;"></div>
+
+        <!-- Table View -->
+        <div class="bookings-table-wrapper" id="tableWrapper" style="display: none;">
+          <table class="bookings-table">
+            <thead>
+              <tr>
+                <th>Bride / Client</th>
+                <th>Phone / Contact</th>
+                <th>Event Date</th>
+                <th>Requested Service</th>
+                <th>Venue & Guests</th>
+                <th>Status</th>
+                <th style="text-align: right;">Quick Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Empty State (No records or no search results) -->
+        <div class="empty-state-card" id="emptyState" style="display: none;">
+          <div class="empty-state-icon">💌</div>
+          <h3 id="emptyTitle">No Bookings Found</h3>
+          <p id="emptySubtitle">No inquiries match the current search filters or database is empty.</p>
+          <button type="button" class="btn-primary-action" id="btnEmptyAction">
+            ➕ Add First Booking
+          </button>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. MODALS
+       ========================================================================= -->
+
+  <!-- ADD MANUAL BOOKING MODAL -->
+  <div class="admin-modal-backdrop" id="addModal">
+    <div class="admin-modal-content">
+      <div class="modal-header-row">
+        <h3>Add Walk-in / Phone Booking</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="addModal">✕</button>
+      </div>
+
+      <form id="addBookingForm" class="modal-form">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="newClientName">Client Name *</label>
+            <input type="text" id="newClientName" class="modal-input" placeholder="e.g. Riya Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newClientPhone">Phone Number *</label>
+            <input type="tel" id="newClientPhone" class="modal-input" placeholder="e.g. +91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newEventDate">Event Date *</label>
+            <input type="date" id="newEventDate" class="modal-input" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newServiceType">Service *</label>
+            <select id="newServiceType" class="modal-select" required>
+              <option value="Royal HD Bridal Makeover">Royal HD Bridal Makeover</option>
+              <option value="Airbrush HD Bridal Glamour">Airbrush HD Bridal Glamour</option>
+              <option value="Luxury Bridal Experience (2-Day)">Luxury Bridal Experience (2-Day)</option>
+              <option value="Engagement & Sagan Makeover">Engagement & Sagan Makeover</option>
+              <option value="Cocktail & Sangeet Glow">Cocktail & Sangeet Glow</option>
+              <option value="Party Glam Makeover">Party Glam Makeover</option>
+              <option value="Pre-Bridal Skincare Rituals">Pre-Bridal Skincare Rituals</option>
+              <option value="Professional Makeup Academy">Professional Makeup Academy</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newVenueLocation">Venue / Location</label>
+            <input type="text" id="newVenueLocation" class="modal-input" placeholder="e.g. Studio Visit or Hotel Crown Plaza">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newPeopleCount">Total People</label>
+            <select id="newPeopleCount" class="modal-select">
+              <option value="1 (Only Bride)">1 (Only Bride)</option>
+              <option value="2 (Bride + 1 Guest)">2 (Bride + 1 Guest)</option>
+              <option value="3-5 (Bridal Party)">3-5 (Bridal Party)</option>
+              <option value="5+ (Large Bridal Group)">5+ (Large Bridal Group)</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="newSpecialNotes">Special Requests / Bridal Notes</label>
+            <textarea id="newSpecialNotes" class="modal-textarea" rows="3" placeholder="Outfit color, drape style, skin concerns, or special requirements..."></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label" for="newStatus">Initial Status</label>
+            <select id="newStatus" class="modal-select">
+              <option value="pending">Pending (Review Needed)</option>
+              <option value="confirmed" selected>Confirmed (Booking Locked)</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer-actions">
+          <button type="button" class="btn-secondary-action" data-close-modal="addModal">Cancel</button>
+          <button type="submit" class="btn-primary-action">Save to Supabase</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- BOOKING DETAILS & DIRECT WHATSAPP DISPATCH MODAL -->
+  <div class="admin-modal-backdrop" id="detailsModal">
+    <div class="admin-modal-content">
+      <div class="modal-header-row">
+        <h3>Inquiry Details & Communication</h3>
+        <button type="button" class="modal-close-btn" data-close-modal="detailsModal">✕</button>
+      </div>
+
+      <div class="detail-view-card" id="detailsContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <label class="form-label">Quick WhatsApp Dispatch Templates</label>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn-secondary-action" id="btnWaConfirmTemplate" style="font-size: 0.78rem;">
+            💬 "Date Confirmed"
+          </button>
+          <button type="button" class="btn-secondary-action" id="btnWaPricingTemplate" style="font-size: 0.78rem;">
+            💬 "Send Bridal Package"
+          </button>
+          <button type="button" class="btn-secondary-action" id="btnWaCustom" style="font-size: 0.78rem;">
+            💬 Custom WhatsApp Chat
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer-actions">
+        <button type="button" class="btn-secondary-action" data-close-modal="detailsModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRMATION MODAL -->
+  <div class="admin-modal-backdrop" id="deleteModal">
+    <div class="admin-modal-content" style="max-width: 440px; text-align: center;">
+      <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">⚠️</div>
+      <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: #fff; margin-bottom: 0.5rem;">Delete Inquiry?</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 1.5rem;" id="deleteModalText">
+        Are you sure you want to remove this booking from your database? This action cannot be undone.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 0.75rem;">
+        <button type="button" class="btn-secondary-action" data-close-modal="deleteModal">Cancel</button>
+        <button type="button" class="btn-primary-action" id="btnConfirmDelete" style="background: #EF4444;">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Admin JavaScript Engine -->
+  <script src="admin.js"></script>
+</body>
+</html>
