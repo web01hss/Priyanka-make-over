@@ -1,0 +1,2533 @@
+/* ==========================================================================
+   PRIYANKA MAKEOVER STUDIO & ACADEMY
+   Luxury Theme: Attractive Purple & Pink Mix + Smooth Animations
+   Fully Mobile Compatible & Responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. COLOR SCHEMES & CSS VARIABLES (Purple & Pink Attractive Mix)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Default Active Theme: Royal Purple & Radiant Pink Mix */
+  --bg-primary: #FAF5FF;             /* Soft Luminous Lavender-Ivory */
+  --bg-surface: #FFFFFF;
+  --bg-secondary: #F6EBFC;           /* Delicate Orchid-Pink Tint */
+  --bg-card: rgba(255, 255, 255, 0.94);
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  
+  /* Delicate, fine animated borders */
+  --border-color: rgba(181, 23, 158, 0.18);
+  --border-hover: rgba(255, 42, 133, 0.55);
+  --border-glow: rgba(138, 43, 226, 0.4);
+  
+  --accent-pink: #FF2A85;            /* Radiant Peony Pink */
+  --accent-purple: #8A2BE2;          /* Royal Amethyst Purple */
+  --accent-primary: #B5179E;         /* Vibrant Magenta Orchid */
+  --accent-primary-hover: #9E1088;
+  --accent-secondary: #7209B7;       /* Rich Deep Violet */
+  --accent-secondary-light: #F3E8FF; /* Lavender Cloud */
+  --accent-soft: #FCE8F3;            /* Soft Pink Petal */
+  --accent-deep: #2A0835;            /* Deep Royal Plum */
+  
+  --accent-gradient: linear-gradient(135deg, #FF2A85 0%, #B5179E 50%, #7209B7 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #FF4B99 0%, #C726AE 50%, #8512D1 100%);
+  --pink-purple-glow-gradient: linear-gradient(90deg, #FF2A85, #B5179E, #8A2BE2, #7209B7, #FF2A85);
+  
+  --text-primary: #24092E;           /* Deep Plum */
+  --text-secondary: #5D4265;         /* Medium Mauve-Grey */
+  --text-muted: #8F7697;             /* Soft Muted Lavender */
+  --text-on-accent: #FFFFFF;
+  
+  --shadow-sm: 0 4px 18px rgba(114, 9, 183, 0.08);
+  --shadow-md: 0 10px 32px rgba(114, 9, 183, 0.14);
+  --shadow-lg: 0 20px 52px rgba(114, 9, 183, 0.2);
+  --shadow-glow: 0 0 28px rgba(255, 42, 133, 0.42);
+  --shadow-purple-glow: 0 0 28px rgba(138, 43, 226, 0.38);
+  
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #20BA5A;
+  --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-full: 9999px;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Palette 2: Vibrant Neon Pink & Electric Violet */
+[data-palette="neon-pink"] {
+  --bg-primary: #FFF7FB;
+  --bg-surface: #FFFFFF;
+  --bg-secondary: #FEE8F3;
+  --border-color: rgba(255, 42, 133, 0.22);
+  --border-hover: rgba(255, 42, 133, 0.6);
+  --accent-pink: #FF1493;
+  --accent-purple: #9400D3;
+  --accent-primary: #FF1493;
+  --accent-primary-hover: #E0007E;
+  --accent-secondary: #8A2BE2;
+  --accent-deep: #320324;
+  --accent-gradient: linear-gradient(135deg, #FF1493 0%, #E0218A 50%, #8A2BE2 100%);
+  --shadow-glow: 0 0 30px rgba(255, 20, 147, 0.45);
+}
+
+/* Palette 3: Pastel Peony & Lavender Mist (Gentle, Soft Purple-Pink) */
+[data-palette="pastel-peony"] {
+  --bg-primary: #FAF7FC;
+  --bg-surface: #FFFFFF;
+  --bg-secondary: #F2EBF7;
+  --border-color: rgba(175, 140, 205, 0.25);
+  --border-hover: rgba(220, 140, 195, 0.6);
+  --accent-pink: #E87EA1;
+  --accent-purple: #9D7AC8;
+  --accent-primary: #C079A8;
+  --accent-primary-hover: #AB6594;
+  --accent-secondary: #8661B0;
+  --accent-deep: #2E1B38;
+  --accent-gradient: linear-gradient(135deg, #E87EA1 0%, #C079A8 50%, #8661B0 100%);
+  --shadow-glow: 0 0 26px rgba(232, 126, 161, 0.38);
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME: Midnight Velvet & Radiant Orchid (Ultra-Luxury Dark Mode)
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg-primary: #120417;             /* Deep Midnight Plum */
+  --bg-surface: #1C0825;             /* Rich Velvet Night Surface */
+  --bg-secondary: #260A32;           /* Soft Dark Amethyst */
+  --bg-card: rgba(30, 9, 39, 0.94);
+  --bg-glass: rgba(22, 6, 28, 0.9);
+  
+  --border-color: rgba(255, 42, 133, 0.22);
+  --border-hover: rgba(255, 42, 133, 0.65);
+  --border-glow: rgba(138, 43, 226, 0.6);
+  
+  --accent-pink: #FF3B94;            /* Neon Peony Pink */
+  --accent-purple: #A855F7;          /* Luminous Amethyst */
+  --accent-primary: #E0218A;
+  --accent-primary-hover: #FF2E93;
+  --accent-secondary: #9B5DE5;
+  --accent-secondary-light: #2A0E38;
+  --accent-soft: #320C3E;            /* Deep Plum Accent Pill */
+  --accent-deep: #FDF4FD;            /* Crisp Bright Headings */
+  
+  --text-primary: #FDF7FF;           /* Bright crisp white-violet */
+  --text-secondary: #D9C3E6;         /* Soft readable lavender text */
+  --text-muted: #9E82AC;             /* Muted purple-grey */
+  --text-on-accent: #FFFFFF;
+  
+  --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 32px rgba(0, 0, 0, 0.65);
+  --shadow-lg: 0 20px 52px rgba(0, 0, 0, 0.85);
+  --shadow-glow: 0 0 35px rgba(255, 42, 133, 0.55);
+  --shadow-purple-glow: 0 0 35px rgba(168, 85, 247, 0.5);
+}
+
+[data-theme="dark"] .rating-badge,
+[data-theme="dark"] .google-logo-box,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .transformation-wrapper,
+[data-theme="dark"] .booking-card,
+[data-theme="dark"] .marquee-section,
+[data-theme="dark"] .reviews-section,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .mobile-menu-drawer {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .google-reviews-header-card,
+[data-theme="dark"] .modal-breakdown-box,
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] .form-textarea {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-select:focus,
+[data-theme="dark"] .form-textarea:focus {
+  background-color: #2D0F3B !important;
+  border-color: var(--accent-pink);
+  color: #fff;
+}
+
+[data-theme="dark"] .filter-pill {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .filter-pill:hover,
+[data-theme="dark"] .filter-pill.active {
+  color: #fff;
+}
+
+[data-theme="dark"] .mobile-sticky-bar {
+  background: rgba(22, 6, 28, 0.95);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .whatsapp-tooltip {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .mobile-nav-link {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .mobile-nav-link:hover {
+  background: var(--accent-soft);
+  color: var(--accent-pink);
+}
+
+[data-theme="dark"] .main-header {
+  background: rgba(22, 6, 28, 0.88);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .main-header.scrolled {
+  background: #17051E;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #EDE1F5;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--accent-pink);
+}
+
+[data-theme="dark"] .top-bar {
+  background: #0D0212;
+  border-bottom: 1px solid rgba(255, 42, 133, 0.2);
+}
+
+[data-theme="dark"] .mobile-toggle {
+  background: #250A32;
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .mobile-toggle span {
+  background: #FDF7FF;
+}
+
+[data-theme="dark"] .site-footer {
+  background: #0D0212;
+  border-top: 1px solid rgba(255, 42, 133, 0.2);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-pink);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-bounce);
+  font-size: 1.15rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(20deg) scale(1.1);
+  box-shadow: 0 0 16px rgba(255, 42, 133, 0.45);
+  background: var(--bg-surface);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFD166;
+  border-color: rgba(255, 209, 102, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Attractive soft purple & pink glowing background aura */
+body::before {
+  content: "";
+  position: fixed;
+  top: -15%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(255, 42, 133, 0.12) 0%, transparent 70%);
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+  animation: floatAura 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -15%;
+  right: -10%;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.12) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+  animation: floatAura 24s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatAura {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(45px, 35px) scale(1.06); }
+  100% { transform: translate(-35px, 50px) scale(0.96); }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* --------------------------------------------------------------------------
+   3. SMALL ANIMATED BORDER & ACCENT LINE (Fixes "Broad Border" Issue)
+   -------------------------------------------------------------------------- */
+.animated-top-border {
+  height: 3.5px;
+  width: 100%;
+  background: var(--pink-purple-glow-gradient);
+  background-size: 300% 100%;
+  animation: animatedBorderShift 4s linear infinite;
+  box-shadow: 0 0 10px rgba(255, 42, 133, 0.4);
+  position: relative;
+  z-index: 105;
+}
+
+@keyframes animatedBorderShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Small, delicate, animated badge tag */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-pink);
+  background: var(--accent-soft);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(255, 42, 133, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: shineSweep 3.5s infinite;
+}
+
+@keyframes shineSweep {
+  0% { left: -100%; }
+  25%, 100% { left: 100%; }
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--accent-deep);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-size: clamp(0.95rem, 1.15vw, 1.12rem);
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. TOP ANNOUNCEMENT BAR
+   -------------------------------------------------------------------------- */
+.top-bar {
+  background: var(--accent-deep);
+  color: #FAF5FF;
+  font-size: 0.8rem;
+  padding: 0.45rem 1rem;
+  position: relative;
+  z-index: 102;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.top-bar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.92;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.top-bar-link:hover {
+  opacity: 1;
+  color: var(--accent-pink);
+}
+
+/* Palette Switcher in Top Bar */
+.palette-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.palette-label {
+  font-size: 0.72rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.palette-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.palette-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.palette-dot:hover, .palette-dot.active {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(255, 42, 133, 0.8);
+}
+
+.palette-dot[data-set="purple-pink"] { background: linear-gradient(135deg, #FF2A85, #8A2BE2); }
+.palette-dot[data-set="neon-pink"] { background: linear-gradient(135deg, #FF1493, #8A2BE2); }
+.palette-dot[data-set="pastel-peony"] { background: linear-gradient(135deg, #E87EA1, #9D7AC8); }
+
+/* --------------------------------------------------------------------------
+   5. MAIN STICKY NAVIGATION HEADER
+   -------------------------------------------------------------------------- */
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--bg-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  transition: var(--transition-smooth);
+}
+
+.main-header.scrolled {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.6rem;
+}
+
+/* Brand Logo with Purple & Pink Gradient Icon */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--accent-gradient);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(181, 23, 158, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover .brand-icon {
+  transform: rotate(6deg) scale(1.06);
+}
+
+.brand-text h1 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.brand-text span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-pink);
+  font-weight: 700;
+  display: block;
+}
+
+/* Desktop Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover {
+  color: var(--accent-pink);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Sleek Buttons with Smooth Micro-Animations */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.45rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-bounce);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(181, 23, 158, 0.32);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-secondary {
+  background: var(--accent-secondary-light);
+  color: var(--accent-deep);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+}
+
+.btn-whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-instagram {
+  background: var(--instagram-gradient);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.32);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(225, 48, 108, 0.45);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* Mobile Toggle Hamburger Icon */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-color);
+  padding: 6px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--accent-deep);
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   6. MOBILE MENU DRAWER (CRITICAL FIX: Hidden on Desktop)
+   -------------------------------------------------------------------------- */
+/* CRITICAL: Explicitly hide mobile drawer on desktop so it never renders in page flow */
+.mobile-menu-drawer {
+  display: none !important;
+}
+
+.mobile-drawer-backdrop {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SECTION (Purple & Pink Luxury Styling)
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding: 3.5rem 0 4.5rem;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff;
+  padding: 0.38rem 0.95rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.stars {
+  color: #F5A623;
+  display: flex;
+  gap: 2px;
+  font-size: 0.92rem;
+}
+
+.rating-badge span {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.google-icon {
+  width: 17px;
+  height: 17px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--accent-deep);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Glowing Purple & Pink Highlight */
+.hero-title .highlight {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2.25rem;
+}
+
+.hero-trust-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-number {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.trust-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+}
+
+/* Hero Visual Composition with Animated Glow Ring */
+.hero-visual {
+  position: relative;
+}
+
+.hero-card-main {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid #fff;
+  aspect-ratio: 4 / 5;
+  background: var(--accent-soft);
+}
+
+.hero-card-main::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: var(--pink-purple-glow-gradient);
+  background-size: 300% 100%;
+  animation: animatedBorderShift 5s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.hero-card-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.hero-card-main:hover img {
+  transform: scale(1.04);
+}
+
+/* Floating interactive chips */
+.hero-chip-badge {
+  position: absolute;
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.95rem;
+  box-shadow: var(--shadow-md);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  animation: floatChip 6s ease-in-out infinite;
+}
+
+.hero-chip-badge.chip-top {
+  top: 8%;
+  left: -8%;
+  animation-delay: 0s;
+}
+
+.hero-chip-badge.chip-bottom {
+  bottom: 8%;
+  right: -6%;
+  animation-delay: 3s;
+}
+
+@keyframes floatChip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.chip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent-pink);
+  font-size: 1.1rem;
+}
+
+.chip-text h4 {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+  line-height: 1.2;
+}
+
+.chip-text p {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. RUNNING MARQUEE TICKER (Purple & Pink)
+   -------------------------------------------------------------------------- */
+.marquee-section {
+  padding: 1.1rem 0;
+  background: #fff;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: marqueeScroll 26s linear infinite;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-deep);
+}
+
+.marquee-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+  box-shadow: 0 0 6px var(--accent-pink);
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* --------------------------------------------------------------------------
+   9. SERVICES SECTION (Delicate Cards with Purple & Pink Highlights)
+   -------------------------------------------------------------------------- */
+.services-section {
+  padding: 5.5rem 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 2rem;
+  margin-top: 3.25rem;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-hover);
+}
+
+.service-img-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.08);
+}
+
+.service-tag {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-pink);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-body {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.service-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  margin-bottom: 0.65rem;
+}
+
+.service-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 1rem;
+}
+
+.feature-point {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  color: var(--text-primary);
+}
+
+.feature-point svg {
+  color: var(--accent-pink);
+  flex-shrink: 0;
+}
+
+.service-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.service-price {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.price-value {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+/* --------------------------------------------------------------------------
+   10. INTERACTIVE BEFORE & AFTER SLIDER
+   -------------------------------------------------------------------------- */
+.transformation-section {
+  padding: 5rem 0;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.transformation-wrapper {
+  max-width: 900px;
+  margin: 2.75rem auto 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  user-select: none;
+  cursor: ew-resize;
+}
+
+.ba-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ba-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.ba-after img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 44px;
+  margin-left: -22px;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ba-handle-btn {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: var(--accent-pink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px rgba(114, 9, 183, 0.3);
+  font-size: 1.1rem;
+  border: 2px solid var(--accent-pink);
+}
+
+.ba-label {
+  position: absolute;
+  bottom: 1rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(42, 8, 53, 0.75);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  z-index: 5;
+}
+
+.ba-label-before { left: 1rem; }
+.ba-label-after { right: 1rem; }
+
+.ba-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 0 0.5rem;
+}
+
+.ba-info h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--accent-deep);
+}
+
+.ba-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   11. INSTAGRAM SECTOR (Touch to Research Look)
+   -------------------------------------------------------------------------- */
+.instagram-sector {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.instagram-banner {
+  background: linear-gradient(135deg, rgba(255, 42, 133, 0.07), rgba(138, 43, 226, 0.08));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.ig-profile-preview {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ig-avatar-ring {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--instagram-gradient);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.35);
+}
+
+.ig-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+.ig-meta h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ig-verified {
+  color: #3897f0;
+  font-size: 0.95rem;
+}
+
+.ig-handle {
+  font-size: 0.88rem;
+  color: var(--accent-pink);
+  font-weight: 600;
+}
+
+.ig-stats {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.ig-stats strong {
+  color: var(--text-primary);
+}
+
+.ig-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2.25rem;
+}
+
+.filter-pill {
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #fff;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-smooth);
+}
+
+.filter-pill:hover, .filter-pill.active {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(181, 23, 158, 0.3);
+}
+
+/* Instagram Grid */
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.ig-tile {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  background: var(--accent-soft);
+  transition: var(--transition-bounce);
+  border: 1px solid var(--border-color);
+}
+
+.ig-tile:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-pink);
+}
+
+.ig-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.ig-tile:hover img {
+  transform: scale(1.08);
+}
+
+.ig-badge-type {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  background: rgba(42, 8, 53, 0.65);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.88rem;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.ig-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42, 8, 53, 0.94) 0%, rgba(42, 8, 53, 0.45) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ig-tile:hover .ig-overlay, .ig-tile:focus .ig-overlay {
+  opacity: 1;
+}
+
+.ig-touch-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FF70B8;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.ig-tile-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.ig-tile-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ig-tile-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. REVIEWS & GOOGLE RATINGS
+   -------------------------------------------------------------------------- */
+.reviews-section {
+  padding: 5.5rem 0;
+  background: #fff;
+  position: relative;
+}
+
+.google-reviews-header-card {
+  max-width: 750px;
+  margin: 0 auto 2.75rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.google-brand-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.google-logo-box {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.google-score-box h3 {
+  font-size: 1.75rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--accent-deep);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.google-score-box p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.review-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: 1.85rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-pink);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.reviewer-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.reviewer-info h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+  line-height: 1.2;
+}
+
+.reviewer-info span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  color: #27AE60;
+  font-weight: 600;
+  margin-left: 0.35rem;
+}
+
+.review-rating-stars {
+  color: #F5A623;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.review-body {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-style: italic;
+  flex: 1;
+}
+
+.review-occasion {
+  margin-top: 1.25rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-pink);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. PHOTO LOOKBOOK GALLERY
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  padding: 5.5rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  background: var(--accent-soft);
+  border: 1px solid var(--border-color);
+}
+
+.gallery-item.span-2 {
+  grid-column: span 2;
+}
+
+.gallery-item.row-2 {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 8, 53, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay h4 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.gallery-overlay p {
+  font-size: 0.78rem;
+  color: #FFB3D9;
+}
+
+/* --------------------------------------------------------------------------
+   14. BOOKING SECTION
+   -------------------------------------------------------------------------- */
+.booking-section {
+  padding: 5.5rem 0;
+  background: var(--bg-secondary);
+}
+
+.booking-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.booking-info-pane {
+  background: linear-gradient(135deg, var(--accent-deep), #3E0C4C);
+  color: #fff;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.booking-info-pane h3 {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.2;
+}
+
+.booking-info-pane p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.contact-quick-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.contact-quick-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.contact-quick-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 42, 133, 0.2);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #FF70B8;
+  font-size: 1.1rem;
+}
+
+.contact-quick-text h5 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-quick-text p, .contact-quick-text a {
+  font-size: 0.92rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.booking-form-pane {
+  padding: 3rem 2.5rem;
+}
+
+/* Supabase Connection Status Pill */
+.supabase-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #27AE60;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.supabase-status-pill.connected {
+  background: rgba(37, 211, 102, 0.12);
+  border-color: rgba(37, 211, 102, 0.35);
+  color: #27AE60;
+}
+
+.supabase-status-pill.notice {
+  background: rgba(245, 166, 35, 0.12);
+  border-color: rgba(245, 166, 35, 0.45);
+  color: #F5A623;
+}
+
+.supabase-status-pill .status-dot {
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 0 3px rgba(255, 42, 133, 0.18);
+  background: #fff;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 1.35rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   15. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--accent-deep);
+  color: #FAF5FF;
+  padding: 4.5rem 0 2rem;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 2.75rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h2 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.35rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.social-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  transition: var(--transition-bounce);
+}
+
+.social-circle:hover {
+  background: var(--accent-gradient);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(255, 42, 133, 0.4);
+}
+
+.footer-column h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 1.15rem;
+  color: #FFB3D9;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-pink);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   15B. FLOATING CONTROLS DOCK (Theme Selector, Dark Mode & Instagram Logo)
+   -------------------------------------------------------------------------- */
+.floating-controls-dock {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transition: var(--transition-smooth);
+}
+
+.floating-controls-dock:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg), 0 0 28px rgba(255, 42, 133, 0.4);
+  transform: translateY(-2px);
+}
+
+.dock-theme-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dock-theme-icon {
+  font-size: 1.05rem;
+  cursor: default;
+}
+
+.dock-theme-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--border-color);
+}
+
+.dock-toggle-btn {
+  width: 38px;
+  height: 38px;
+  font-size: 1.1rem;
+}
+
+.dock-instagram-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--instagram-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.35);
+  transition: var(--transition-bounce);
+  text-decoration: none;
+}
+
+.dock-instagram-btn:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 6px 20px rgba(225, 48, 108, 0.55);
+}
+
+@media (max-width: 768px) {
+  .floating-controls-dock {
+    bottom: 5.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 0.35rem 0.75rem;
+    gap: 0.55rem;
+  }
+  
+  .floating-controls-dock:hover {
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. FLOATING WHATSAPP BUTTON (With Soft Ripple)
+   -------------------------------------------------------------------------- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.floating-whatsapp-btn {
+  width: 58px;
+  height: 58px;
+  background: var(--whatsapp-color);
+  color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  transition: var(--transition-bounce);
+  font-size: 1.75rem;
+  position: relative;
+}
+
+.floating-whatsapp-btn:hover {
+  background: var(--whatsapp-hover);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--whatsapp-color);
+  animation: pulseRipple 2s ease-out infinite;
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(0.95); opacity: 1; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.whatsapp-tooltip {
+  background: #fff;
+  color: var(--text-primary);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+/* Mobile Sticky Bottom Bar (Only visible on mobile) */
+.mobile-sticky-bar {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   17. INTERACTIVE MODALS (Instagram Research & Lightbox)
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 8, 53, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+}
+
+.modal-close-btn:hover {
+  background: var(--accent-pink);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.modal-img-pane {
+  background: var(--accent-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-img-pane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info-pane {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-pink);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--accent-deep);
+  margin-bottom: 0.5rem;
+}
+
+.modal-breakdown-box {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--border-color);
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  margin-bottom: 0.35rem;
+}
+
+.breakdown-item:last-child {
+  margin-bottom: 0;
+}
+
+.breakdown-label {
+  color: var(--text-muted);
+}
+
+.breakdown-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal-caption {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+}
+
+.modal-hashtags {
+  font-size: 0.78rem;
+  color: var(--accent-pink);
+  margin-bottom: 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.modal-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   18. SMOOTH REVEAL ANIMATIONS
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* --------------------------------------------------------------------------
+   19. FLAWLESS MOBILE & RESPONSIVE COMPATIBILITY
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.75rem;
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-cta-group {
+    justify-content: center;
+  }
+  
+  .hero-trust-indicators {
+    justify-content: center;
+  }
+  
+  .hero-visual {
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .booking-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-item.span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* MOBILE VIEW (< 768px) */
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+  
+  .nav-links, .nav-actions {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+
+  /* Full Screen Sleek Mobile Slide-in Drawer */
+  .mobile-drawer-backdrop {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 8, 53, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 198;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .mobile-drawer-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .mobile-menu-drawer {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 82%;
+    max-width: 330px;
+    height: 100vh;
+    background: #FFFFFF;
+    box-shadow: -6px 0 28px rgba(114, 9, 183, 0.25);
+    padding: 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 199;
+    overflow-y: auto;
+  }
+  
+  .mobile-menu-drawer.open {
+    transform: translateX(0);
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mobile-drawer-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: grid;
+    place-items: center;
+    color: var(--accent-deep);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  .mobile-drawer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .mobile-nav-link {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent-deep);
+    padding: 0.6rem 0.85rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-link:hover, .mobile-nav-link:active {
+    background: var(--accent-soft);
+    color: var(--accent-pink);
+    transform: translateX(4px);
+  }
+
+  .mobile-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  /* Compact button styling for mobile drawer */
+  .mobile-drawer-footer .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Hero section adjustments */
+  .hero-chip-badge.chip-top {
+    left: 0;
+    top: 4%;
+  }
+  
+  .hero-chip-badge.chip-bottom {
+    right: 0;
+    bottom: 4%;
+  }
+  
+  .modal-content {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
+  
+  .modal-img-pane {
+    aspect-ratio: 16 / 10;
+  }
+  
+  .floating-whatsapp {
+    bottom: 4.8rem;
+    right: 1.25rem;
+  }
+  
+  .whatsapp-tooltip {
+    display: none;
+  }
+  
+  /* Mobile Sticky Bottom Action Bar */
+  .mobile-sticky-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-color);
+    padding: 0.6rem 0.85rem;
+    z-index: 98;
+    box-shadow: 0 -4px 18px rgba(114, 9, 183, 0.1);
+  }
+
+  .mobile-bar-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .mobile-bar-actions .btn {
+    padding: 0.55rem 0.4rem;
+    font-size: 0.78rem;
+    border-radius: var(--radius-sm);
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+
+  .booking-info-pane, .booking-form-pane {
+    padding: 2rem 1.5rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
